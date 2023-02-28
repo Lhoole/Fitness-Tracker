@@ -23,6 +23,10 @@ Meals.init(
     type: DataTypes.STRING,
     allowNull: false,
   },
+  meal_junk: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+  },
   DateTime_start: {
     type: DataTypes.DATE,
     allowNull: false,
