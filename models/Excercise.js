@@ -37,8 +37,8 @@ Excercise.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'category',
+    modelName: 'exercise',
   }
 );
 
-module.exports = Category;
+module.exports = Excercise;
