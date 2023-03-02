@@ -1,0 +1,17 @@
+[
+    {
+      "name": "walking",
+      "exercise": "walking.",
+      "user_id":" test_1234",
+    },
+    {
+      "name": "running",
+      "exercise": "running" 
+    },
+    {
+      "name": "treadmill",
+      "exercise": "treadmill",
+      "user_id":" test_1234",
+    }
+  ]
+  
