@@ -1,21 +1,21 @@
 [
     {
-      "user_id": "test1",  
+      "user_id": "adam_1234",  
       "name": "sleep",
-      "DateTime_start":"10pm",
-      "DateTime_end":"5am"
+      "DateTime_start":10,
+      "DateTime_end": 5
     },
     {
       "user_id": "test2",
-      "exercise": "running",
-      "DateTime_start":"10pm",
-      "DateTime_end":"5am"
+      "name": "sleep",
+      "DateTime_start":10,
+      "DateTime_end": 5
     },
     {
       "user_id": "test3",  
-      "exercise": "treadmill", 
-      "DateTime_start":"10pm",
-      "DateTime_end":"5am"
+      "name": "sleep", 
+      "DateTime_start":10,
+      "DateTime_end":5
     }
   ]
   
