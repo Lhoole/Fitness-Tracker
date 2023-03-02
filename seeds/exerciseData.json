@@ -10,7 +10,8 @@
     },
     {
       "name": "treadmill",
-      "exercise": "treadmill"
+      "exercise": "treadmill",
+      "user_id":" test_1234",
     }
   ]
   
