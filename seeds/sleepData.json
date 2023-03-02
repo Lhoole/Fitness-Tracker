@@ -1,0 +1,21 @@
+[
+    {
+      "user_id": "test1",  
+      "name": "sleep",
+      "DateTime_start":"10pm",
+      "DateTime_end":"5am"
+    },
+    {
+      "user_id": "test2",
+      "exercise": "running",
+      "DateTime_start":"10pm",
+      "DateTime_end":"5am"
+    },
+    {
+      "user_id": "test3",  
+      "exercise": "treadmill", 
+      "DateTime_start":"10pm",
+      "DateTime_end":"5am"
+    }
+  ]
+  
