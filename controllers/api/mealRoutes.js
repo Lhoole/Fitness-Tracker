@@ -2,6 +2,7 @@ const router = require('express').Router();
 const {User, Meals} = require('../../models');
 const withAuth = require('../../utils/auth');
 
+// GET all meal data
 router.get('/', async (req, res) => {
     try{
       const mealData = await Meals.findAll()
@@ -10,8 +11,9 @@ router.get('/', async (req, res) => {
       res.status(500).json(err);
     }
   });
-  
-  router.get('/:id', async (req, res) => {
+
+// GET specific meal by id
+router.get('/:id', async (req, res) => {
     try{
       const mealData = await Meals.findByPk(req.params.id, {
         include: [{ model: Meals }],
@@ -26,9 +28,10 @@ router.get('/', async (req, res) => {
     } catch(err){
     res.status(500).json(err);
   }
-  });
-  
-  router.post('/', withAuth, async (req, res) => {
+});
+
+// CREATE new meal entry
+router.post('/', withAuth, async (req, res) => {
     try {
       const newMeal = await Meals.create({
         ...req.body,
@@ -39,10 +42,10 @@ router.get('/', async (req, res) => {
     } catch (err) {
       res.status(400).json(err);
     }
-  });
+});
   
-  
-  router.delete('/:id', withAuth, async (req, res) => {
+// DELETE existing meal entry 
+router.delete('/:id', withAuth, async (req, res) => {
     try {
       const mealData = await Meals.destroy({
         where: {
@@ -59,6 +62,6 @@ router.get('/', async (req, res) => {
     } catch (err) {
       res.status(500).json(err);
     }
-  });
+});
   
-  module.exports = router;
+module.exports = router;

@@ -2,6 +2,7 @@ const router = require('express').Router();
 const {User, Sleep} = require('../../models');
 const withAuth = require('../../utils/auth');
 
+// GET all sleep data
 router.get('/', async (req, res) => {
     try{
       const sleepData = await Sleep.findAll()
@@ -11,7 +12,8 @@ router.get('/', async (req, res) => {
     }
   });
   
-  router.get('/:id', async (req, res) => {
+// GET specific sleep data by id
+router.get('/:id', async (req, res) => {
     try{
       const sleepData = await Sleep.findByPk(req.params.id, {
         include: [{ model: Sleep }],
@@ -26,9 +28,10 @@ router.get('/', async (req, res) => {
     } catch(err){
     res.status(500).json(err);
   }
-  });
-  
-  router.post('/', withAuth, async (req, res) => {
+});
+
+// CREATE new sleep entry
+router.post('/', withAuth, async (req, res) => {
     try {
       const newSleep = await Sleep.create(
         ...req.body,
@@ -38,10 +41,10 @@ router.get('/', async (req, res) => {
     } catch (err) {
       res.status(400).json(err);
     }
-  });
+});
   
-  
-  router.delete('/:id', withAuth, async (req, res) => {
+// DELETE a sleep entry 
+router.delete('/:id', withAuth, async (req, res) => {
     try {
       const sleepData = await Sleep.destroy({
         where: {
@@ -58,6 +61,6 @@ router.get('/', async (req, res) => {
     } catch (err) {
       res.status(500).json(err);
     }
-  });
+});
   
-  module.exports = router;
+module.exports = router;
