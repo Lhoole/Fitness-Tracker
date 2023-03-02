@@ -1,5 +1,5 @@
 const Meals = require('./Meals');
-const Excercise = require('./Excercise');
+const Exercise = require('./Exercise');
 const Sleep = require('./Sleep');
 const User = require('./User');
 
@@ -11,7 +11,7 @@ User.hasMany(Sleep, {
     foreignKey: "user_id",
 });
 
-User.hasMany(Excercise, {
+User.hasMany(Exercise, {
     foreignKey: "user_id",
 });
 
@@ -29,7 +29,7 @@ Sleep.belongsTo(User, {
 
 module.exports = {
   Meals,
-  Excercise,
+  Exercise,
   Sleep,
   User,
 };
