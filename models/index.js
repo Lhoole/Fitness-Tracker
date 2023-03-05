@@ -19,7 +19,7 @@ Meals.belongsTo(User, {
     foreignKey: 'user_id',
 });
 
-Excercise.belongsTo(User, {
+Exercise.belongsTo(User, {
     foreignKey: 'user_id',
 });
 
