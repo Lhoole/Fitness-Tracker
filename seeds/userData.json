@@ -1,31 +1,31 @@
 [
     {
+      "user_id" : 1234,
       "FirstName": "Adam",
       "lastName": "Pilato",
-      "user_id": "adam_1234",
       "email": "adam_pilato@hotmail.com",
       "password": "password123"
     },
     {
+      "user_id" : 5678,
       "firstName": "Luke",
       "lastName": "Hoole",
-      "user_id": "luke_1234",
       "email": "luke@gmail.com",
-      "password": "password123"
+      "password": "password"
     },
     {
+      "user_id" : 9012,
       "firstName": "Andy",
       "lastName": "Nguyen",
-      "user_id":"andy_1234",
       "email": "andy@gmail.com",
-      "password": "password123"
+      "password": "password"
     },
     {
+      "user_id" : 3456,
       "firstName": "Michael",
       "lastName": "Bosse",
-      "user_id" : "michael_1234",
       "email": "michael@gmail.com",
-      "password": "password123"  
+      "password": "password"  
     }
   ]
   
