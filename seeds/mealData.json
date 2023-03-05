@@ -1,16 +1,23 @@
 [
     {
-      "name": "walking",
-      "exercise": "walking.",
-      "user_id":" test_1234",
+      "user_id": 1234,
+      "meal_name": "Pasta",
+      "meal_junk": "kfc",
+      "dateTime_start":"2023-04-01T10:00:00.000Z",
+      "date_Time_end":"2023-04-01T12:00:00.000Z"
     },
     {
-      "name": "running",
-      "exercise": "running" 
+      "user_id": 5678, 
+      "meal_name": "burger",
+      "meal_junk": "hungry jacks",
+      "dateTime_start":"2023-04-01T10:00:00.000Z",
+      "date_Time_end":"2023-04-01T12:00:00.000Z"
     },
     {
-      "name": "treadmill",
-      "exercise": "treadmill",
-      "user_id":" test_1234",
+      "user_id": 9012,
+      "meal_name": "pizza",
+      "meal_junk": "oporto",
+      "dateTime_start":"2023-04-01T10:00:00.000Z",
+      "date_Time_end":"2023-04-01T12:00:00.000Z"
     }
-  ]
+]
