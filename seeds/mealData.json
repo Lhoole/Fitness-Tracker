@@ -1,10 +1,10 @@
 [
     {
       "user_id": 1234,
-      "meal_name": "Pasta",
+      "meal_name": "pasta",
       "meal_junk": "kfc",
       "dateTime_start":"2023-04-01T10:00:00.000Z",
-      "date_Time_end":"2023-04-01T12:00:00.000Z"
+      "dateTime_end":"2023-04-01T12:00:00.000Z"
     },
     {
       "user_id": 5678, 
