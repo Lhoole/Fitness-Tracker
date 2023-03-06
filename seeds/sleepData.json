@@ -1,21 +1,18 @@
 [
-    {
-      "user_id": "adam_1234",  
-      "name": "sleep",
-      "DateTime_start":10,
-      "DateTime_end": 5
-    },                                                                                                                                                                       
-    {
-      "user_id": "test2",
-      "name": "sleep",
-      "DateTime_start":10,
-      "DateTime_end": 5
-    },
-    {
-      "user_id": "test3",  
-      "name": "sleep", 
-      "DateTime_start":10,
-      "DateTime_end":5
-    }
+  {
+    "user_id": 1234,
+    "date_time_start":"2023-04-01T10:00:00.000Z",
+    "date_time_end":"2023-04-01T12:00:00.000Z"
+  },                                                                                                                                                   
+  {
+    "user_id": 5678,
+    "date_time_start":"2023-04-01T10:00:00.000Z",
+    "date_time_end":"2023-04-01T12:00:00.000Z"
+  },
+  {
+    "user_id": 9022,
+    "date_time_start":"2023-04-01T10:00:00.000Z",
+    "date_time_end":"2023-04-01T12:00:00.000Z"
+  }
   ]
   

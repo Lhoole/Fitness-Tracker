@@ -12,9 +12,10 @@ router.get('/', async (req, res) => {
   });
 
 // GET one user
-router.get('/:id', async (req, res) => {
+router.get('/:email', async (req, res) => {
+
     try {
-      const userData = await User.findByPk(req.params.id);
+      const userData = await User.findOne({ where: { email: req.params.email } });
       if (!userData) {
         res.status(404).json({ message: 'No user with this id!' });
         return;
@@ -37,11 +38,11 @@ router.post('/', async (req, res) => {
 
 
 // PUT update a user
-router.put('/:id', async (req, res) => {
+router.put('/:email', async (req, res) => {
     try {
       const userData = await User.update(req.body, {
         where: {
-          id: req.params.id,
+          email: req.params.email,
         },
         individualHooks: true
       });
@@ -60,7 +61,7 @@ router.post('/login', async (req, res) => {
     try {
       const userData = await User.findOne({ where: { email: req.body.email } });
       if (!userData) {
-        res.status(404).json({ message: 'Login failed. Please try again!' });
+        res.status(404).json({ message: 'Login failed. Please try again' });
         return;
       }
   

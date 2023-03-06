@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Exercise } = require('../../models/Exercise');
+const { User, Exercise } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -11,10 +11,10 @@ router.get('/', async (req, res) => {
     }
   });
 
-  router.get('/:id', async (req, res) => {
+  router.get('/:user_id', async (req, res) => {
     try {
-      const exerciseData = await Exercise.findByPk(req.params.id, {
-        include: [{ model: Exercise }]
+      const exerciseData = await Exercise.findAll({where: {user_id: req.params.user_id},
+        include: [{ model: User }]
       });
   
       if (!exerciseData) {
@@ -28,11 +28,13 @@ router.get('/', async (req, res) => {
     }
   });
   
-router.post('/', withAuth, async (req, res) => {
+router.post('/', 
+// withAuth, 
+async (req, res) => {
   try {
     const newExercise = await Exercise.create({
       ...req.body,
-      user_id: req.session.user_id,
+      // user_id: req.session.user_id,
     });
 
     res.status(200).json(newExercise);
@@ -41,12 +43,14 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id', 
+// withAuth, 
+async (req, res) => {
   try {
     const exerciseData = await Exercise.destroy({
       where: {
         id: req.params.id,
-        user_id: req.session.user_id,
+        // user_id: req.session.user_id,
       },
     });
 
