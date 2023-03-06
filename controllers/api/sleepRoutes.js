@@ -13,10 +13,10 @@ router.get('/', async (req, res) => {
   });
   
 // GET specific sleep data by id
-router.get('/:id', async (req, res) => {
+router.get('/:user_id', async (req, res) => {
     try{
-      const sleepData = await Sleep.findByPk(req.params.id, {
-        include: [{ model: Sleep }],
+      const sleepData = await Sleep.findAll({where: {user_id: req.params.user_id},
+        include: [{ model: User }],
       })
    
       if (!sleepData) {
@@ -47,7 +47,9 @@ async (req, res) => {
 });
   
 // DELETE a sleep entry 
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id', 
+// withAuth
+ async (req, res) => {
     try {
       const sleepData = await Sleep.destroy({
         where: {
