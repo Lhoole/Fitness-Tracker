@@ -27,11 +27,11 @@ Meals.init(
     type: DataTypes.BOOLEAN,
     allowNull: false,
   },
-  dateTime_start: {
+  date_time_start: {
     type: DataTypes.DATE,
     allowNull: false,
   },
-  dateTime_end: {
+  date_time_end: {
     type: DataTypes.DATE,
     allowNull: false,
   }
