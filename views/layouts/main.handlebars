@@ -18,10 +18,10 @@
       </h1>
       <nav>
         {{#if logged_in}}
-        <a href="/public/js/users.js">profile</a> |
+        <a href="/profile">profile</a> |
         <button class="no-button" id="logout">logout</button>
         {{else}}
-        <a href="/public/js/login.js">login</a>
+        <a href="/login">login</a>
         {{/if}}
       </nav>
     </header>
@@ -33,7 +33,7 @@
     </footer>
   </div>
   {{#if logged_in}}
-  <script src="/public/js/logout.js"></script>
+  <script src="/js/logout.js"></script>
   {{/if}}
 </body>
 
