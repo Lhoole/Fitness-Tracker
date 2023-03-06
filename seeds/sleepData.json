@@ -1,21 +1,18 @@
 [
-    {
-      "user_id": "test1",  
-      "name": "sleep",
-      "DateTime_start":"10pm",
-      "DateTime_end":"5am"
-    },
-    {
-      "user_id": "test2",
-      "exercise": "running",
-      "DateTime_start":"10pm",
-      "DateTime_end":"5am"
-    },
-    {
-      "user_id": "test3",  
-      "exercise": "treadmill", 
-      "DateTime_start":"2021-12-14 14:45:32",
-      "DateTime_end":"2021-12-14 14:55:32"
-    }
+  {
+    "user_id": 1234,
+    "dateTime_start":"2023-04-01T10:00:00.000Z",
+    "dateTime_end":"2023-04-01T12:00:00.000Z"
+  },                                                                                                                                                   
+  {
+    "user_id": 5678,
+    "dateTime_start":"2023-04-01T10:00:00.000Z",
+    "dateTime_end":"2023-04-01T12:00:00.000Z"
+  },
+  {
+    "user_id": 9012,
+    "dateTime_start":"2023-04-01T10:00:00.000Z",
+    "dateTime_end":"2023-04-01T12:00:00.000Z"
+  }
   ]
   

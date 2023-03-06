@@ -5,14 +5,17 @@ const User = require('./User');
 
 User.hasMany(Meals, {
     foreignKey: "user_id",
+    onDelete: 'CASCADE'
 });
 
 User.hasMany(Sleep, {
     foreignKey: "user_id",
+    onDelete: 'CASCADE'
 });
 
 User.hasMany(Exercise, {
     foreignKey: "user_id",
+    onDelete: 'CASCADE'
 });
 
 Meals.belongsTo(User, {
