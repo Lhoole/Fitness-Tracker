@@ -1,10 +1,9 @@
 const sequelize = require('../config/connection');
-const { User, Exercise, Fitness, Meal, Sleep } = require('../models');
-const userData = require('./user-seeds.json');
-const exerciseData = require('./exercise-seeds.json');
-const fitnessData = require('./fitness-seeds.json');
-const mealData = require('./meal-seeds.json');
-const sleepData = require('./sleep-seeds.json');
+const { User, Exercise, Meals, Sleep } = require('../models');
+const userData = require('./userData.json');
+const exerciseData = require('./exercisedata.json');
+const mealData = require('./mealdata.json');
+const sleepData = require('./sleepdata.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -18,11 +17,7 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  const fitnesses = await Fitness.bulkCreate(fitnessData, {
-    returning: true,
-  });
-
-  const meals = await Meal.bulkCreate(mealData, {
+  const meals = await Meals.bulkCreate(mealData, {
     returning: true,
   });
 
