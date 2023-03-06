@@ -12,15 +12,15 @@ const loginFormHandler = async (event) => {
         body: JSON.stringify({ email, password }),
         headers: { 'Content-Type': 'application/json' },
       });
-  
-      if (response.ok) {
+
+      if (response.ok) 
   
         document.location.replace('/profile');
       } else {
         alert(response.statusText);
       }
-    }
   };
+
   
   const signupFormHandler = async (event) => {
     event.preventDefault();
