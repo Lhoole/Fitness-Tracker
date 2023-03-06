@@ -18,7 +18,11 @@ router.get('/', async (req, res) => {
     const exercises = exerciseData.map((exercise) => exercise.get({ plain: true }));
 
     // Pass serialized data and session flag into template
+<<<<<<< HEAD
     res.render('homepage', { 
+=======
+    res.render('login', { 
+>>>>>>> 97f48203243a14a9a2a21a1c49973c147d1576df
       exercises, 
       logged_in: req.session.logged_in 
     });
@@ -78,5 +82,9 @@ router.get('/login', (req, res) => {
 
   res.render('login');
 });
+<<<<<<< HEAD
 
+=======
+//test
+>>>>>>> 97f48203243a14a9a2a21a1c49973c147d1576df
 module.exports = router;
