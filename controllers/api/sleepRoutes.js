@@ -18,7 +18,7 @@ router.get('/:id', async (req, res) => {
       const sleepData = await Sleep.findByPk(req.params.id, {
         include: [{ model: Sleep }],
       })
-  
+   
       if (!sleepData) {
         res.status(404).json({ message: 'No existing data found with this id' });
         return;
@@ -31,11 +31,14 @@ router.get('/:id', async (req, res) => {
 });
 
 // CREATE new sleep entry
-router.post('/', withAuth, async (req, res) => {
+router.post('/', 
+// withAuth
+async (req, res) => {
     try {
       const newSleep = await Sleep.create(
-        ...req.body,
-    //   user_id: req.session.user_id,
+        {...req.body,
+        // user_id: req.session.user_id,
+        }
       );
       res.status(200).json(newSleep);
     } catch (err) {

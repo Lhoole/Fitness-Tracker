@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Exercise } = require('../../models/Exercise');
+const { User, Exercise } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -32,7 +32,7 @@ router.post('/', withAuth, async (req, res) => {
   try {
     const newExercise = await Exercise.create({
       ...req.body,
-      user_id: req.session.user_id,
+      // user_id: req.session.user_id,
     });
 
     res.status(200).json(newExercise);
