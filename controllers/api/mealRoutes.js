@@ -13,10 +13,10 @@ router.get('/', async (req, res) => {
   });
 
 // GET specific meal by id
-router.get('/:id', async (req, res) => {
+router.get('/:user_id', async (req, res) => {
     try{
-      const mealData = await Meals.findByPk(req.params.id, {
-        include: [{ model: Meals }],
+      const mealData = await Meals.findAll({where: {user_id: req.params.user_id},
+        include: [{ model: User }],
       })
   
       if (!mealData) {
@@ -31,11 +31,13 @@ router.get('/:id', async (req, res) => {
 });
 
 // CREATE new meal entry
-router.post('/', withAuth, async (req, res) => {
+router.post('/', 
+// withAuth, 
+async (req, res) => {
     try {
       const newMeal = await Meals.create({
         ...req.body,
-        user_id: req.session.user_id,
+        // user_id: req.session.user_id,
     });
 
       res.status(200).json(newMeal);
@@ -45,12 +47,14 @@ router.post('/', withAuth, async (req, res) => {
 });
   
 // DELETE existing meal entry 
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id', 
+// withAuth, 
+async (req, res) => {
     try {
       const mealData = await Meals.destroy({
         where: {
           id: req.params.id,
-          user_id: req.session.user_id,
+          // user_id: req.session.user_id,
         },
       });
   

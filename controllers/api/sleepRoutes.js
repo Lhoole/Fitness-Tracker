@@ -13,12 +13,12 @@ router.get('/', async (req, res) => {
   });
   
 // GET specific sleep data by id
-router.get('/:id', async (req, res) => {
+router.get('/:user_id', async (req, res) => {
     try{
-      const sleepData = await Sleep.findByPk(req.params.id, {
-        include: [{ model: Sleep }],
+      const sleepData = await Sleep.findAll({where: {user_id: req.params.user_id},
+        include: [{ model: User }],
       })
-  
+   
       if (!sleepData) {
         res.status(404).json({ message: 'No existing data found with this id' });
         return;
@@ -31,11 +31,14 @@ router.get('/:id', async (req, res) => {
 });
 
 // CREATE new sleep entry
-router.post('/', withAuth, async (req, res) => {
+router.post('/', 
+// withAuth
+async (req, res) => {
     try {
       const newSleep = await Sleep.create(
-        ...req.body,
-    //   user_id: req.session.user_id,
+        {...req.body,
+        // user_id: req.session.user_id,
+        }
       );
       res.status(200).json(newSleep);
     } catch (err) {
@@ -44,7 +47,9 @@ router.post('/', withAuth, async (req, res) => {
 });
   
 // DELETE a sleep entry 
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id', 
+// withAuth
+ async (req, res) => {
     try {
       const sleepData = await Sleep.destroy({
         where: {
