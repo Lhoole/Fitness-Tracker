@@ -1,54 +1,29 @@
 [
-<<<<<<< HEAD
-    {
-      "user_id" : 1234,
-      "FirstName": "Adam",
-      "lastName": "Pilato",
-=======
     { 
       "id": 1234,
       "first_name": "Adam",
       "last_name": "Pilato",
->>>>>>> 11ee6e6b6572e2d93e5d39121b238133da5888df
       "email": "adam_pilato@hotmail.com",
       "password": "password123"
     },
     {
-<<<<<<< HEAD
-      "user_id" : 5678,
-      "firstName": "Luke",
-      "lastName": "Hoole",
-=======
       "id": 2042,
       "first_name": "Luke",
       "last_name": "Hoole",
->>>>>>> 11ee6e6b6572e2d93e5d39121b238133da5888df
       "email": "luke@gmail.com",
       "password": "password"
     },
     {
-<<<<<<< HEAD
-      "user_id" : 9012,
-      "firstName": "Andy",
-      "lastName": "Nguyen",
-=======
       "id":5678,
       "first_name": "Andy",
       "last_name": "Nguyen",
->>>>>>> 11ee6e6b6572e2d93e5d39121b238133da5888df
       "email": "andy@gmail.com",
       "password": "password"
     },
     {
-<<<<<<< HEAD
-      "user_id" : 3456,
-      "firstName": "Michael",
-      "lastName": "Bosse",
-=======
       "id" : 9022,
       "first_name": "Michael",
       "last_name": "Bosse",
->>>>>>> 11ee6e6b6572e2d93e5d39121b238133da5888df
       "email": "michael@gmail.com",
       "password": "password"  
     }
