@@ -19,15 +19,15 @@ Exercise.init(
       key: 'id',
     },
   },
-   excercise_name: {
+   exercise_name: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  DateTime_start: {
+  dateTime_start: {
     type: DataTypes.DATE,
     allowNull: false,
   },
-  DateTime_end: {
+  dateTime_end: {
     type: DataTypes.DATE,
     allowNull: false,
   }
