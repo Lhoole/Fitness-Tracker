@@ -12,24 +12,24 @@ Exercise.init(
     primaryKey: true,
     autoIncrement: true,
    },
-   user_id: {
+   exercise_name: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  date_time_start: {
+    type: DataTypes.DATE,
+    allowNull: false,
+  },
+  date_time_end: {
+    type: DataTypes.DATE,
+    allowNull: false,
+  },
+  user_id: {
     type: DataTypes.INTEGER,
     references: {
       model: 'user',
       key: 'id',
     },
-  },
-   excercise_name: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  DateTime_start: {
-    type: DataTypes.DATE,
-    allowNull: false,
-  },
-  DateTime_end: {
-    type: DataTypes.DATE,
-    allowNull: false,
   }
   },
   {

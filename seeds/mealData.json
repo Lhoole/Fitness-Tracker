@@ -1,23 +1,42 @@
 [
     {
       "user_id": 1234,
+<<<<<<< HEAD
       "meal_name": "pasta",
       "meal_junk": "kfc",
       "dateTime_start":"2023-04-01T10:00:00.000Z",
       "dateTime_end":"2023-04-01T12:00:00.000Z"
+=======
+      "meal_name": "Pasta",
+      "meal_junk": true,
+      "date_time_start":"2023-04-01T10:00:00.000Z",
+      "date_time_end":"2023-04-01T12:00:00.000Z"
+>>>>>>> 11ee6e6b6572e2d93e5d39121b238133da5888df
     },
     {
       "user_id": 5678, 
       "meal_name": "burger",
+<<<<<<< HEAD
       "meal_junk": "hungry jacks",
       "dateTime_start":"2023-04-01T10:00:00.000Z",
       "dateTime_end":"2023-04-01T12:00:00.000Z"
+=======
+      "meal_junk": true,
+      "date_time_start":"2023-04-01T10:00:00.000Z",
+      "date_time_end":"2023-04-01T12:00:00.000Z"
+>>>>>>> 11ee6e6b6572e2d93e5d39121b238133da5888df
     },
     {
-      "user_id": 9012,
+      "user_id": 9022,
       "meal_name": "pizza",
+<<<<<<< HEAD
       "meal_junk": "oporto",
       "dateTime_start":"2023-04-01T10:00:00.000Z",
       "dateTime_end":"2023-04-01T12:00:00.000Z"
+=======
+      "meal_junk": true,
+      "date_time_start":"2023-04-01T10:00:00.000Z",
+      "date_time_end":"2023-04-01T12:00:00.000Z"
+>>>>>>> 11ee6e6b6572e2d93e5d39121b238133da5888df
     }
 ]
