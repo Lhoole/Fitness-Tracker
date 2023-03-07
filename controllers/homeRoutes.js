@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Exercise, User } = require('../models');
+const { Exercise, Sleep, Meals, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -18,11 +18,7 @@ router.get('/', async (req, res) => {
     const exercises = exerciseData.map((exercise) => exercise.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-<<<<<<< HEAD
-    res.render('homepage', { 
-=======
     res.render('login', { 
->>>>>>> 97f48203243a14a9a2a21a1c49973c147d1576df
       exercises, 
       logged_in: req.session.logged_in 
     });
@@ -59,11 +55,10 @@ router.get('/profile', withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Project }],
+      include: [{ model: Exercise }],
     });
-
     const user = userData.get({ plain: true });
-
+console.log(userData  )
     res.render('profile', {
       ...user,
       logged_in: true
@@ -86,5 +81,4 @@ router.get('/login', (req, res) => {
 
 =======
 //test
->>>>>>> 97f48203243a14a9a2a21a1c49973c147d1576df
 module.exports = router;
