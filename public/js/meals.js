@@ -40,16 +40,16 @@ const newFormHandler = async (event) => {
   };
   
 
-const isTicked = document.querySelector('#meal-junk');
+// const isTicked = document.querySelector('#meal-junk');
 
-const junkTick = ('change', ()  => {
+// const junkTick = ('change', ()  => {
 
-  if(junkTick.isTicked){
-    return true
-  }else{
-    return false
-  }
-});
+//   if(junkTick.isTicked){
+//     return true
+//   }else{
+//     return false
+//   }
+// });
   
   document
     .querySelector('.new-meal-form')
@@ -59,9 +59,9 @@ const junkTick = ('change', ()  => {
     .querySelector('.meal-list')
     .addEventListener('click', delButtonHandler);
 
-  document
-    .querySelector('#meal-junk-checkbox')
-    .addEventListener('submit', junkTick);
+  // document
+  //   .querySelector('#meal-junk-checkbox')
+  //   .addEventListener('submit', junkTick);
 
 
   
