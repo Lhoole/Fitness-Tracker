@@ -13,17 +13,19 @@
             <option value="excellent">Excellent</option>
           </select>
         </div>
-        {{!-- <div class="form-group">
-          <label for="quality-of-sleep">quality-of-sleep</label>
-          <textarea class="form-control" type="text" id="quality-of-sleep" name="quality-of-sleep"></textarea>
-        </div> --}}
         <div class="form-group">
-          <label for="sleep-start">Sleep Start time:</label>
-          <textarea class="form-control" id="sleep-start" name="sleep-start"></textarea>
+        <label for="sleep-start">Sleep Start time:</label>
+          <input
+            id="sleep-start"
+            type="datetime-local"
+            name="sleep-start"/>
         </div>
         <div class="form-group">
-          <label for="sleep-end">Sleep End time:</label>
-          <textarea class="form-control" id="sleep-end" name="sleep-end"></textarea>
+        <label for="sleep-end">Sleep End time:</label>
+          <input
+            id="sleep-end"
+            type="datetime-local"
+            name="sleep-end"/>
         </div>
         <div class="form-group">
           <button type="submit" class="btn btn-primary">Save</button>
@@ -40,7 +42,7 @@
           <p> {{format_date sleep.date_time_start}}: {{sleep.sleep_quality}}</p>
         </div>
         <div class="col-md-4">
-          <button class="btn btn-sm btn-danger" data-id="{{log.id}}">DELETE</button>
+          <button class="btn btn-sm btn-danger" data-id="{{sleep.id}}">DELETE</button>
         </div>
       </div>
       {{/each}}
