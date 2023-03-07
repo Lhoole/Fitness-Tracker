@@ -1,19 +1,137 @@
-
 <div class="row mb-4 project">
   <div class="col-md-5">
     {{#if logged_in}}
-    <h1>logged in</h1>
-    <a href="/exercises">Exercise</a>
-    <a href="/meals">Meals</a>
-    <a href="/sleeps">Sleep</a>
+      <h1 class="mb-4">Welcome Back, {{first_name}}!</h1>
+      <div class="d-flex flex-column">
+        <a href="/exercises" class="btn btn-primary mb-2">Exercise</a>
+        <a href="/meals" class="btn btn-primary mb-2">Meals</a>
+        <a href="/sleep" class="btn btn-primary mb-2">Sleep</a>
+      </div>
+      <div class="chart-container my-5">
+        <canvas id="meal-chart" width="800" height="200"></canvas>
+      </div>
+      <div class="chart-container my-5">
+        <canvas id="exercise-chart" width="800" height="200"></canvas>
+      </div>
+      <div class="chart-container my-5">
+        <canvas id="sleep-chart" width="800" height="200"></canvas>
+      </div>
+    
     {{else}}
     <h1>
-      Welcome to the fitness tracker app
+      Welcome to the Fitness Tracker app
     </h1>
-    <P>
-      Please login or sign up in the top right corner
-    </P>
+    <p>
+      Please sign in or sign up in the top right corner
+    </p>
     {{/if}}
   </div>
-  <script src="./js/homepage.js"></script>
+  <!-- bootstrap css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap.min.css">
+  <!--  chart.js  -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <script>
+
+    {{#if logged_in}}
+ // get meal data
+fetch('/api/meals')
+  .then(response => response.json())
+  .then(data => {
+    const mealData = {
+      labels: data.names,
+      datasets: [
+        {
+          label: 'Meals',
+          data: data.meals,
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          borderColor: 'rgba(255, 99, 132, 1)',
+          borderWidth: 1
+        }
+      ]
+    };
+    // create a new bar chart for meals
+    const mealChart = new Chart(document.getElementById('meal-chart'), {
+      type: 'bar',
+      data: mealData,
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+  });
+
+    // get exercise data
+    fetch('api/exercises')
+  .then(response => response.json())
+  .then(data => {
+    const exerciseData = {
+      labels: data.names,
+      datasets: [
+        {
+          label: 'Exercise duration (minutes)',
+          data: data.durations,
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1
+        }
+      ]
+    };
+    // create a new bar chart for exercise
+    const exerciseChart = new Chart(document.getElementById('exercise-chart'), {
+      type: 'bar',
+      data: exerciseData,
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+  });
+
+    // get sleep data
+    fetch('/api/sleeps')
+      .then(response => response.json())
+      .then(data => {
+        const sleepData = {
+          labels: data.dates,
+          datasets: [
+            {
+              label: 'Sleep duration (hours)',
+              data: data.durations,
+              backgroundColor: 'rgba(255, 206, 86, 0.2)',
+              borderColor: 'rgba(255, 206, 86, 1)',
+              borderWidth: 1
+            }
+          ]
+        };
+        // create a new bar chart for sleep
+                const sleepChart = new Chart(document.getElementById('sleep-chart'), {
+          type: 'bar',
+          data: sleepData,
+            options: {
+              scales: {
+              yAxes: [{
+              ticks: {
+              beginAtZero: true
+              }
+            }]
+          }
+        }
+      });
+    });
+{{/if}}
+
+</script>
+</div>
+
 
