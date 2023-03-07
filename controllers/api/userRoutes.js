@@ -142,6 +142,3 @@ router.post('/logout', (req, res) => {
 });
 
 module.exports = router;
-
-//withAuth is called in the homeRoutes changed userRoutes for testing
-// new users get created in login.js
