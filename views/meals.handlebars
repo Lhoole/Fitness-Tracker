@@ -8,29 +8,49 @@
   <div class="row mt-4">
     <div class="col-md-6">
       <h3>Add a New Meal:</h3>
-
+      
       <form class="form new-meal-form">
         <div class="form-group">
           <label for="meal-name">Meal Name:</label>
-          <input class="form-control" type="text" id="meal-name" name="meal-name" />
+          <input class="form-control" type="text" id="meal-name" name="meal-name"/>
         </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary">Add Meal</button>
-        </div>
-      </form>
-    </div>
 
-    {{#if meals.length}}
+    <div>
+        <input
+        type="checkbox"
+        id="meal-junk"
+        id="meal-junk-checkbox"
+        name="checkbox"
+        value= "false" />
+      <label for="meal-junk">Junk Meal</label>
+    </div>
+  
+        <div class="form-group">
+        <label for="meal-start">Meal Time:</label>
+          <input
+            id="meal-start"
+            type="datetime-local"
+            name="meal-start"/>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary new-meal-form">Add Meal</button>
+        </div>
+
+      {{#if meals.length}}
     <div class="col-md-6 meal-list">
-      <h3>Current Meals:</h3>
+      <h3>Current meals:</h3>
 
       {{#each meals as |meal|}}
       <div class="row mb-2">
         <div class="col-md-8">
-          <h4><a href="/meal/{{meal.id}}">{{meal.meal_name}}</a></h4>
+          <href="/meal/{{meal.id}}"{{meal.meal_name}}>
+          <p>{{meal.meal_junk}}</p>
+          <p>{{format_date meal.date_time_start}}</p>
+
         </div>
         <div class="col-md-4">
-          <button class="btn btn-sm btn-danger" data-id="{{meal.id}}">DELETE</button>
+          <button type="click" class="btn btn-sm btn-danger" data-id="{{meal.id}}">DELETE</button>
         </div>
       </div>
       {{/each}}
@@ -38,3 +58,5 @@
     {{/if}}
   </div>
 </div>
+</div>
+<script src="./js/meals.js"></script>
