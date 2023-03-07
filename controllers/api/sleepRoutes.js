@@ -32,14 +32,14 @@ router.get('/:user_id', async (req, res) => {
 
 // CREATE new sleep entry
 router.post('/', 
-// withAuth
+withAuth,
 async (req, res) => {
     try {
       const newSleep = await Sleep.create(
         {...req.body,
-        // user_id: req.session.user_id,
-        }
-      );
+        user_id: req.session.user_id,
+        });
+
       res.status(200).json(newSleep);
     } catch (err) {
       res.status(400).json(err);
@@ -48,13 +48,13 @@ async (req, res) => {
   
 // DELETE a sleep entry 
 router.delete('/:id', 
-// withAuth
+withAuth,
  async (req, res) => {
     try {
       const sleepData = await Sleep.destroy({
         where: {
-          id: req.params.id
-        //   user_id: req.session.user_id,
+          id: req.params.id,
+          user_id: req.session.user_id,
         }
       });
   

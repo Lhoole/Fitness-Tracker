@@ -1,21 +1,21 @@
 const newFormHandler = async (event) => {
     event.preventDefault();
   
-    const sleep = document.querySelector('#sleep-quality').value.trim();
-    const start = document.querySelector('#exercise-start').value.trim();
-    const end = document.querySelector('#exercise-end').value.trim();
+    const sleep_quality = document.querySelector('#quality-of-sleep').value.trim();
+    const date_time_start = document.querySelector('#sleep-start').value.trim();
+    const date_time_end = document.querySelector('#sleep-end').value.trim();
   
-    if (exercise && start && end) {
-      const response = await fetch(`/api/exercises`, {
+    if (sleep_quality && date_time_start && date_time_end) {
+      const response = await fetch(`/api/sleeps`, {
         method: 'POST',
-        body: JSON.stringify({ exercise, start, end }),
+        body: JSON.stringify({ sleep_quality, date_time_start, date_time_end }),
         headers: {
           'Content-Type': 'application/json',
         },
       });
   
       if (response.ok) {
-        document.location.replace('/exercises');
+        document.location.replace('/sleeps');
       } else {
         alert('Failed to create project');
       }
@@ -26,12 +26,12 @@ const newFormHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
   
-      const response = await fetch(`/api/exercises/${id}`, {
+      const response = await fetch(`/api/sleeps/${id}`, {
         method: 'DELETE',
       });
   
       if (response.ok) {
-        document.location.replace('/exercises');
+        document.location.replace('/sleeps');
       } else {
         alert('Failed to delete project');
       }
@@ -40,9 +40,9 @@ const newFormHandler = async (event) => {
   
 
   document
-  .querySelector('.new-exercise-form')
+  .querySelector('.new-sleeps-form')
   .addEventListener('submit', newFormHandler);
 
   document
-  .querySelector('.exercise-list')
+  .querySelector('.sleeps-list')
   .addEventListener('click', delButtonHandler);
