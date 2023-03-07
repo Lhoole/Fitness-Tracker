@@ -19,6 +19,15 @@ module.exports = {
         return `<span for="img" aria-label="swimmer">🏊</span>`;
       }
     },
+    totaltime: (timestart, timeend) => {
+      var startDate = new Date(timestart);
+      var endDate   = new Date(timeend);
+      var seconds = (endDate.getTime() - startDate.getTime()) / 1000;
+      var date = new Date(0);
+      date.setSeconds(seconds); // specify value for SECONDS here
+      var timeString = date.toISOString().substring(11, 19);
+      return timeString;
+    },
   };
   
   

@@ -40,6 +40,7 @@
       <div class="row mb-2">
         <div class="col-md-8">
           <p> {{format_date sleep.date_time_start}}: {{sleep.sleep_quality}}</p>
+          <p>{{totaltime sleep.date_time_start sleep.date_time_end}}</p>
         </div>
         <div class="col-md-4">
           <button class="btn btn-sm btn-danger" data-id="{{sleep.id}}">DELETE</button>
