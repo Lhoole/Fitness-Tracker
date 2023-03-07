@@ -32,12 +32,12 @@ router.get('/:user_id', async (req, res) => {
 
 // CREATE new meal entry
 router.post('/', 
-// withAuth, 
+withAuth, 
 async (req, res) => {
     try {
-      const newMeal = await Meals.create({
-        ...req.body,
-        // user_id: req.session.user_id,
+      const newMeal = await Meals.create(
+        {...req.body,
+        user_id: req.session.user_id,
     });
 
       res.status(200).json(newMeal);
@@ -48,13 +48,13 @@ async (req, res) => {
   
 // DELETE existing meal entry 
 router.delete('/:id', 
-// withAuth, 
+withAuth, 
 async (req, res) => {
     try {
       const mealData = await Meals.destroy({
         where: {
           id: req.params.id,
-          // user_id: req.session.user_id,
+          user_id: req.session.user_id,
         },
       });
   
