@@ -1,21 +1,25 @@
 [
   {
     "user_id": 1234,
+    "sleep_quality": "Poor",
     "date_time_start":"2023-04-01T10:00:00.000Z",
     "date_time_end":"2023-04-01T12:00:00.000Z"
   },                                                                                                                                                   
   {
     "user_id": 5678,
+    "sleep_quality": "Poor",
     "date_time_start":"2023-04-01T10:00:00.000Z",
     "date_time_end":"2023-04-01T12:00:00.000Z"
   },
   {
     "user_id": 9022,
+    "sleep_quality": "Poor",
     "date_time_start":"2023-04-01T10:00:00.000Z",
     "date_time_end":"2023-04-01T12:00:00.000Z"
   },
   {
     "user_id": 2042,
+    "sleep_quality": "Poor",
     "date_time_start":"2023-04-01T10:00:00.000Z",
     "date_time_end":"2023-04-01T12:00:00.000Z"
   }
