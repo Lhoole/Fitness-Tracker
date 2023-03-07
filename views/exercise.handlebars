@@ -15,12 +15,18 @@
           <input class="form-control" type="text" id="exercise-name" name="exercise-name" />
         </div>
         <div class="form-group">
-          <label for="exercise-description">Exercise Start time:</label>
-          <textarea class="form-control" id="exercise-start" name="exercise-start"></textarea>
+        <label for="exercise-start">Exercise start time:</label>
+          <input
+            id="exercise-start"
+            type="datetime-local"
+            name="exercise-start"/>
         </div>
         <div class="form-group">
-          <label for="exercise-description">Exercise End time:</label>
-          <textarea class="form-control" id="exercise-end" name="exercise-start"></textarea>
+        <label for="exercise-end">Exercise end time:</label>
+          <input
+            id="exercise-end"
+            type="datetime-local"
+            name="exercise-end"/>
         </div>
         <div class="form-group">
           <button type="submit" class="btn btn-primary">Add Exercise</button>
@@ -30,14 +36,14 @@
 
     {{#if exercises.length}}
     <div class="col-md-6 exercise-list">
-      <h3>Current Exercises:</h3>
+      <h3>Past Exercises:</h3>
 
       {{#each exercises as |exercise|}}
       <div class="row mb-2">
         <div class="col-md-8">
-          <h4><a href="/exercise/{{exercise.id}}">{{exercise.exercise_name}}</a></h4>
-          <p>{{exercise.date_time_start}}</p>
-          <p>{{exercise.date_time_end}}</p>
+          <h4>{{exercise.exercise_name}}</h4>
+          <p>{{format_date exercise.date_time_start}}</p>
+          <p>Time exercising: {{totaltime exercise.date_time_start exercise.date_time_end}}</p>
         </div>
         <div class="col-md-4">
           <button class="btn btn-sm btn-danger" data-id="{{exercise.id}}">DELETE</button>
