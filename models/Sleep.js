@@ -19,6 +19,10 @@ Sleep.init(
       key: 'id',
     },
   },
+  sleep_quality:{
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   date_time_start: {
     type: DataTypes.DATE,
     allowNull: false,

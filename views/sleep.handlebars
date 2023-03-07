@@ -2,11 +2,8 @@
     <div class="col-md-6">
       <h3>Log Your Sleep:</h3>
 
-      <form class="form sleep-log-form">
-        <div class="form-group">
-          <label for="hours-slept">Hours Slept:</label>
-          <input class="form-control" type="number" id="hours-slept" name="hours-slept" />
-        </div>
+      <form class="form new-sleeps-form">
+        
         <div class="form-group">
           <label for="quality-of-sleep">Quality of Sleep:</label>
           <select class="form-control" id="quality-of-sleep" name="quality-of-sleep">
@@ -17,26 +14,39 @@
           </select>
         </div>
         <div class="form-group">
+        <label for="sleep-start">Sleep Start time:</label>
+          <input
+            id="sleep-start"
+            type="datetime-local"
+            name="sleep-start"/>
+        </div>
+        <div class="form-group">
+        <label for="sleep-end">Sleep End time:</label>
+          <input
+            id="sleep-end"
+            type="datetime-local"
+            name="sleep-end"/>
+        </div>
+        <div class="form-group">
           <button type="submit" class="btn btn-primary">Save</button>
         </div>
       </form>
     </div>
 
-    {{#if sleepLogs.length}}
-    <div class="col-md-6 sleep-log-list">
+    <div class="col-md-6 sleeps-list">
       <h3>Your Sleep Logs:</h3>
 
-      {{#each sleepLogs as |log|}}
+      {{#each sleep as |sleep|}}
       <div class="row mb-2">
         <div class="col-md-8">
-          <p>{{log.date}} - {{log.hoursSlept}} hours - {{log.qualityOfSleep}}</p>
+          <p> {{format_date sleep.date_time_start}}: {{sleep.sleep_quality}}</p>
         </div>
         <div class="col-md-4">
-          <button class="btn btn-sm btn-danger" data-id="{{log.id}}">DELETE</button>
+          <button class="btn btn-sm btn-danger" data-id="{{sleep.id}}">DELETE</button>
         </div>
       </div>
       {{/each}}
     </div>
-    {{/if}}
   </div>
 </div>
+<script src="./js/sleep.js"></script>
