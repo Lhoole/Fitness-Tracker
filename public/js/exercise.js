@@ -1,14 +1,14 @@
 const newFormHandler = async (event) => {
     event.preventDefault();
   
-    const exercise = document.querySelector('#exercise-name').value.trim();
-    const start = document.querySelector('#exercise-start').value.trim();
-    const end = document.querySelector('#exercise-end').value.trim();
+    const exercise_name = document.querySelector('#exercise-name').value.trim();
+    const date_time_start = document.querySelector('#exercise-start').value.trim();
+    const date_time_end = document.querySelector('#exercise-end').value.trim();
   
-    if (exercise && start && end) {
+    if (exercise_name && date_time_start && date_time_end) {
       const response = await fetch(`/api/exercises`, {
         method: 'POST',
-        body: JSON.stringify({ exercise, start, end }),
+        body: JSON.stringify({ exercise_name, date_time_start, date_time_end }),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -17,7 +17,7 @@ const newFormHandler = async (event) => {
       if (response.ok) {
         document.location.replace('/exercises');
       } else {
-        alert('Failed to create project');
+        alert('Failed to log exercise');
       }
     }
   };
@@ -33,7 +33,7 @@ const newFormHandler = async (event) => {
       if (response.ok) {
         document.location.replace('/exercises');
       } else {
-        alert('Failed to delete project');
+        alert('Failed to delete exercise entry');
       }
     }
   };
