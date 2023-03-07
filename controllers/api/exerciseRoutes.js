@@ -44,13 +44,13 @@ async (req, res) => {
 });
 
 router.delete('/:id', 
-// withAuth, 
+withAuth, 
 async (req, res) => {
   try {
     const exerciseData = await Exercise.destroy({
       where: {
         id: req.params.id,
-        // user_id: req.session.user_id,
+        user_id: req.session.user_id,
       },
     });
 
