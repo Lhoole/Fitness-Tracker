@@ -11,21 +11,21 @@
       "first_name": "Luke",
       "last_name": "Hoole",
       "email": "luke@gmail.com",
-      "password": "password123"
+      "password": "password"
     },
     {
       "id":5678,
       "first_name": "Andy",
       "last_name": "Nguyen",
       "email": "andy@gmail.com",
-      "password": "password123"
+      "password": "password"
     },
     {
       "id" : 9022,
       "first_name": "Michael",
       "last_name": "Bosse",
       "email": "michael@gmail.com",
-      "password": "password123"  
+      "password": "password"  
     }
   ]
   
