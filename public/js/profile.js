@@ -37,7 +37,7 @@ const newFormHandler = async (event) => {
       }
     }
   };
-  
+  //test
   document
     .querySelector('.new-project-form')
     .addEventListener('submit', newFormHandler);
