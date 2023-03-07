@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Exercise, User } = require('../models');
+const { Exercise, Sleep, Meals, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -90,16 +90,60 @@ router.get('/exercises', async (req, res) => {
       ],
       attributes: ["first_name", "last_name"]
     });
-    //console.log(userData)
-    // Serialize data so the template can read it
+
     const exercises = userData.exercises.map((exercise) => exercise.get({ plain: true }));
-    // Pass serialized data and session flag into template
     var data = {user:userData.dataValues,
       exercises, 
       logged_in: req.session.logged_in 
     }
     console.log(data)
-    res.render('project', data);
+    res.render('exercise', data);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+router.get('/sleeps', async (req, res) => {
+  try {
+    // Get all projects and JOIN with user data
+    const userData = await User.findByPk(req.session.user_id, {
+      include: [
+        {
+          model: Sleep
+        }
+      ],
+      attributes: ["first_name", "last_name"]
+    });
+
+    const sleep = userData.sleep.map((sleep) => sleep.get({ plain: true }));
+    var data = {user:userData.dataValues,
+      sleep, 
+      logged_in: req.session.logged_in 
+    }
+    console.log(data)
+    res.render('sleep', data);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+router.get('/meals', async (req, res) => {
+  try {
+    // Get all projects and JOIN with user data
+    const userData = await User.findByPk(req.session.user_id, {
+      include: [
+        {
+          model: Meals
+        }
+      ],
+      attributes: ["first_name", "last_name"]
+    });
+
+    const meals = userData.meals.map((meal) => meal.get({ plain: true }));
+    var data = {user:userData.dataValues,
+      meals, 
+      logged_in: req.session.logged_in 
+    }
+    console.log(data)
+    res.render('meals', data);
   } catch (err) {
     res.status(500).json(err);
   }

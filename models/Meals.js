@@ -30,10 +30,6 @@ Meals.init(
   date_time_start: {
     type: DataTypes.DATE,
     allowNull: false,
-  },
-  date_time_end: {
-    type: DataTypes.DATE,
-    allowNull: false,
   }
   },
   {
