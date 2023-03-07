@@ -8,6 +8,6 @@ const userRoutes = require('./userRoutes');
 router.use('/exercises', exerciseRoutes);
 router.use('/meals', mealRoutes);
 router.use('/sleeps', sleepRoutes);
-router.use('/users', userRoutes)
+router.use('/users', userRoutes);
 
 module.exports = router;
