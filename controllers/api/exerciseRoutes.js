@@ -29,12 +29,12 @@ router.get('/', async (req, res) => {
   });
   
 router.post('/', 
-// withAuth, 
+withAuth, 
 async (req, res) => {
   try {
     const newExercise = await Exercise.create({
       ...req.body,
-      // user_id: req.session.user_id,
+      user_id: req.session.user_id,
     });
 
     res.status(200).json(newExercise);
