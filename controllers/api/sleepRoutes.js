@@ -3,9 +3,9 @@ const {User, Sleep} = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // GET all sleep data
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try{
-      const sleepData = await Sleep.findAll()
+      const sleepData = await Sleep.findAll({where: {user_id: req.session.user_id}})
       res.status(200).json(sleepData);
     } catch(err) {
       res.status(500).json(err);
@@ -13,7 +13,8 @@ router.get('/', async (req, res) => {
   });
   
 // GET specific sleep data by id
-router.get('/:user_id', async (req, res) => {
+router.get('/:user_id', withAuth, async (req, res) => {
+  
     try{
       const sleepData = await Sleep.findAll({where: {user_id: req.params.user_id},
         include: [{ model: User }],
