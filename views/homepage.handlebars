@@ -1,21 +1,22 @@
 <div class="row mb-4 project">
   <div class="col-md-5">
     {{#if logged_in}}
-      <h1 class="mb-4">Welcome Back, {{first_name}}!</h1>
+      <h1 class="mb-4">Welcome back, {{first_name}}!</h1>
       <div class="d-flex flex-column">
         <a href="/exercises" class="btn btn-primary mb-2">Exercise</a>
+          <div class="chart-container my-5 w-50">
+          <canvas id="meal-chart" width="800" height="200"></canvas>
+          </div>
         <a href="/meals" class="btn btn-primary mb-2">Meals</a>
+          <div class="chart-container my-5">
+          <canvas id="exercise-chart" width="800" height="200"></canvas>
+          </div>
         <a href="/sleeps" class="btn btn-primary mb-2">Sleep</a>
+          <div class="chart-container my-5">
+          <canvas id="sleep-chart" width="800" height="200"></canvas>
+          </div>
       </div>
-      <div class="chart-container my-5">
-        <canvas id="meal-chart" width="800" height="200"></canvas>
-      </div>
-      <div class="chart-container my-5">
-        <canvas id="exercise-chart" width="800" height="200"></canvas>
-      </div>
-      <div class="chart-container my-5">
-        <canvas id="sleep-chart" width="800" height="200"></canvas>
-      </div>
+
     
     {{else}}
     <h1>
