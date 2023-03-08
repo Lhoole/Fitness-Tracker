@@ -39,16 +39,21 @@
 
       {{#if meals.length}}
     <div class="col-md-6 meal-list">
-      <h3>Current meals:</h3>
+      <h3>Past meals:</h3>
 
       {{#each meals as |meal|}}
       <div class="row mb-2">
+        {{#if meal.meal_junk}}
         <div class="col-md-8">
-          <href="/meal/{{meal.id}}"{{meal.meal_name}}>
-          <p>{{meal.meal_junk}}</p>
+          <h4 style="color:red;">{{meal.meal_name}}: Junk Food</h4>
           <p>{{format_date meal.date_time_start}}</p>
-
         </div>
+        {{else}}
+        <div class="col-md-8">
+          <h4 style="color:green;">{{meal.meal_name}}: Healthy</h4>
+          <p>{{format_date meal.date_time_start}}</p>
+        </div>
+        {{/if}}
         <div class="col-md-4">
           <button type="click" class="btn btn-sm btn-danger" data-id="{{meal.id}}">DELETE</button>
         </div>
