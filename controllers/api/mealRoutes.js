@@ -3,9 +3,9 @@ const {User, Meals} = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // GET all meal data
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try{
-      const mealData = await Meals.findAll()
+      const mealData = await Meals.findAll({where: {user_id: req.session.user_id}})
       res.status(200).json(mealData);
     } catch(err) {
       res.status(500).json(err);
@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
   });
 
 // GET specific meal by id
-router.get('/:user_id', async (req, res) => {
+router.get('/:user_id', withAuth, async (req, res) => {
     try{
       const mealData = await Meals.findAll({where: {user_id: req.params.user_id},
         include: [{ model: User }],

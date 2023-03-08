@@ -2,16 +2,16 @@ const router = require('express').Router();
 const { User, Exercise } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
-      const exerciseData = await Exercise.findAll();
+      const exerciseData = await Exercise.findAll({where: {user_id: req.session.user_id}});
       res.status(200).json(exerciseData);
     } catch (err) {
       res.status(500).json(err);
     }
   });
 
-  router.get('/:user_id', async (req, res) => {
+  router.get('/:user_id', withAuth, async (req, res) => {
     try {
       const exerciseData = await Exercise.findAll({where: {user_id: req.params.user_id},
         include: [{ model: User }]
