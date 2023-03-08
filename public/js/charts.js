@@ -1,8 +1,4 @@
 
-
-
-
-
 fetch('/api/meals')
   .then(response => response.json())
   .then(data => { 
@@ -41,12 +37,34 @@ fetch('/api/meals')
     fetch('api/exercises')
   .then(response => response.json())
   .then(data => {
+
+    const filteredData = {
+      date_time_start: data[0].date_time_start,
+      date_time_end: data[0].date_time_end,
+      exercise_name: data[0].exercise_name,
+      // durations: data.durations.filter(duration => duration >= 10)
+    };
+    console.log(data)
+
+    const timestamp1 = filteredData.date_time_start;
+    const timestamp2 = filteredData.date_time_end;
+    
+    console.log(timestamp1)
+    console.log(timestamp2)
+    
+
+    const date1 = new Date(timestamp1);
+    const date2 = new Date(timestamp2);
+    
+    
+    const duration = Math.abs(date2 - date1) / (1000 * 60 * 60); 
+    console.log(duration)
     const exerciseData = {
-      labels: data.names,
+      labels: filteredData.exercise_name,
       datasets: [
         {
           label: 'Exercise duration (minutes)',
-          data: data.durations,
+          data: [duration], 
           backgroundColor: 'rgba(54, 162, 235, 0.2)',
           borderColor: 'rgba(54, 162, 235, 1)',
           borderWidth: 1
@@ -64,10 +82,17 @@ fetch('/api/meals')
               beginAtZero: true
             }
           }]
+        },
+        title: {
+          display: true,
+          text: `Exercise duration for the day: ${duration} hours`
         }
       }
     });
-  });
+  })
+
+  // .catch(error => console.error('Error fetching exercise data:', error));
+
 
     // get sleep data
     fetch('/api/sleeps')
@@ -139,3 +164,4 @@ fetch('/api/meals')
 //       }
 //     }); console.log(mealData)
 //   });
+
