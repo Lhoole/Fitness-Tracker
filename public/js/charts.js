@@ -30,7 +30,7 @@ fetch('/api/meals')
           }]
         }
       }
-    }); console.log(mealData)
+    });
   });
 
     // get exercise data
@@ -41,9 +41,6 @@ fetch('/api/meals')
     const labels = data.map(row => row.exercise_name);
     const timestamp1 = data.map(row => row.date_time_start);
     const timestamp2 = data.map(row => row.date_time_end);
-    console.log(labels);
-    console.log(timestamp1);
-    console.log(timestamp2);
 
     const durationsArray = [];
 
@@ -54,10 +51,6 @@ fetch('/api/meals')
       durationsArray.push(duration);
     }
 
-    console.log(durationsArray);
-    
-
-    // console.log(duration)
     const exerciseData = {
       labels: labels,
       datasets: [
@@ -101,9 +94,6 @@ fetch('api/sleeps')
     const labels = data.map(row => row.sleep_quality);
     const timestamp1 = data.map(row => row.date_time_start);
     const timestamp2 = data.map(row => row.date_time_end);
-    console.log(labels);
-    console.log(timestamp1);
-    console.log(timestamp2);
 
     const durationsArray = [];
 
@@ -113,9 +103,6 @@ fetch('api/sleeps')
       const duration = Math.abs(date2 - date1) / (1000 * 60 * 60);
       durationsArray.push(duration);
     }
-
-    console.log(durationsArray);
-    
 
   const sleepData = {
     labels: labels,
