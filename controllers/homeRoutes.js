@@ -10,7 +10,6 @@ router.get('/', async (req, res) => {
         attributes: { exclude: ['password'] },
       });
       const user = userData.get({ plain: true });
-  console.log(userData  )
       res.render('homepage', {
         ...user,
         logged_in: true
@@ -33,7 +32,6 @@ router.get('/profile', withAuth, async (req, res) => {
       include: [{ model: Exercise }],
     });
     const user = userData.get({ plain: true });
-console.log(userData  )
     res.render('profile', {
       ...user,
       logged_in: true
@@ -71,7 +69,6 @@ router.get('/exercises', async (req, res) => {
       exercises, 
       logged_in: req.session.logged_in 
     }
-    console.log(data)
     res.render('exercise', data);
   } catch (err) {
     res.status(500).json(err);
@@ -95,7 +92,6 @@ router.get('/sleeps', async (req, res) => {
       sleep, 
       logged_in: req.session.logged_in 
     }
-    console.log(data)
     res.render('sleep', data);
   } catch (err) {
     res.status(500).json(err);
@@ -118,7 +114,6 @@ router.get('/meals', async (req, res) => {
       meals, 
       logged_in: req.session.logged_in 
     }
-    console.log(data)
     res.render('meals', data);
   } catch (err) {
     res.status(500).json(err);
